@@ -4,14 +4,27 @@ import Navbar from './components/Navbar';
 import AboutUs from './components/AboutUs';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import TextForm from './components/TextForm';
+import { useState } from 'react';
 
 function App() {
+  const [mode,setMode] = useState('light'); /////////// Check Dark mode is enabled
+  const toggleMode = () => {
+    if(mode==='light')
+    {setMode('dark')
+      console.log("Here 1");
+      document.body.style.backgroundColor = 'grey'
+    }
+  else{
+      setMode('light')
+      document.body.style.backgroundColor = 'white'
+    }
+  }
   return (
     <>
-      <Navbar title ="TextUtils" aboutText="About Us" homeText="Home" />
+      <Navbar title ="TextUtils" aboutText="About Us" homeText="Home" mode={mode} toggleMode={toggleMode} />
       {/* <AboutUs /> */}
-      <div className="container">
-        <TextForm heading="Enter Text" />
+      <div className="container p-3">
+        <TextForm heading="Enter Text" mode={mode} />
       </div>
       </>
   );
