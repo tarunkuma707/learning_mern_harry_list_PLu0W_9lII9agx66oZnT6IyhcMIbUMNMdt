@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 export default function Navbar(props) {
   return (
