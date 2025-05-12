@@ -9,12 +9,13 @@ import Childdata from './Childdata';
 
 function App() {
   const [myData,setMyData]  = useState([]);
+  
+  const [mode,setMode] = useState('light'); /////////// Check Dark mode is enabled ////
+  
   useEffect(()=>{
     axios.get("https://jsonplaceholder.typicode.com/posts")
     .then((res)=>setMyData(res.data))
   },[]);
-  
-  const [mode,setMode] = useState('light'); /////////// Check Dark mode is enabled ////
   const toggleMode = () => {
     if(mode==='light')
     {setMode('dark')
